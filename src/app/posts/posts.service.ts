@@ -61,6 +61,7 @@ export class PostsService {
     }>(BACKEND_URL + id);
   }
 
+  //use formdata to avoid cors error for storing images
   addPost(title: string, content: string, image: File) {
     const postData = new FormData();
     postData.append("title", title);
@@ -76,6 +77,7 @@ export class PostsService {
       });
   }
 
+  //use formdata to avoid cors error for storing images
   updatePost(id: string, title: string, content: string, image: File | string) {
     let postData: Post | FormData;
     if (typeof image === "object") {
